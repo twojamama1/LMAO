@@ -18,7 +18,10 @@ else()
 endif()
 
 # mpv: pkg-config on Linux, manual find on Windows
-if(UNIX)
+if(UNIX AND NOT APPLE)
+    find_package(Qt6 REQUIRED COMPONENTS Widgets OpenGLWidgets DBus)
+    set(PLATFORM_LIBS Qt6::DBus)
+    add_definitions(-DUSE_DBUS)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(MPV REQUIRED mpv)
     include(GNUInstallDirs)

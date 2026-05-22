@@ -5,6 +5,29 @@ Yes, another one. Mainly for my own peace of mind but I see no reason not to sha
 
 Linux and Windows are both supported. MacOS will be looked into in the near future.
 
+
+## Built With
+
+- [Qt6](https://www.qt.io/) — UI framework
+- [libmpv](https://mpv.io/) — media playback engine
+- [FFmpeg](https://ffmpeg.org/) — optional, for full-res screenshots and bitrate detection
+
+
+## Installation
+
+**Releases:**
+- **Linux AppImage** — single file, runs on any distro. `chmod +x` and run.
+- **Linux tar.gz** — for manual install. Requires `qt6-qtbase` and `mpv-libs`.
+- **Windows** — extract and run `lmao.exe`.
+- **Windows (full)** — includes ffmpeg and ffprobe for full-resolution screenshots and bitrate detection.
+
+**Fedora (COPR):**
+```bash
+sudo dnf copr enable ElekKartofelek/LMAO
+sudo dnf install lmao
+```
+
+
 ## Controls
 
 | Input               | Action                         |
@@ -28,11 +51,16 @@ Linux and Windows are both supported. MacOS will be looked into in the near futu
 | Right-click         | Context menu                   |
 
 
-## Built With
+## Which build should I get?
 
-- [Qt6](https://www.qt.io/) — UI framework
-- [libmpv](https://mpv.io/) — media playback engine
-- [FFmpeg](https://ffmpeg.org/) — optional, for full-res screenshots and bitrate detection
+LMAO has an option to copy video frame to clipboard but it needs ffmpeg to get a full resolution frame. Otherwise it fallbacks to the exact size you see on your screen (can be worked around by resizing window or going fullscreen).
+
+Additionally FFprobe is used for a rare edge case where insanely heavy high bitrate files are being thrown in. If FFprobe is available it reads the bitrate beforehand and warns user providing additional options before lag occurs.
+
+I realise though these two edge cases aren't always worth 500mb download. Base app is perfectly fine.
+
+This only concerns Windows builds. Linux builds can use system installed FFmpeg and FFprobe.
+
 
 ## Building
 
