@@ -8,18 +8,18 @@ Linux and Windows are both supported. MacOS will be looked into in the near futu
 
 ## Built With
 
-- [Qt6](https://www.qt.io/) — UI framework
-- [libmpv](https://mpv.io/) — media playback engine
-- [FFmpeg](https://ffmpeg.org/) — optional, for full-res screenshots and bitrate detection
+- [Qt6](https://www.qt.io/) - UI framework
+- [libmpv](https://mpv.io/) - media playback engine
+- [FFmpeg](https://ffmpeg.org/) - optional, for full-res screenshots and bitrate detection
 
 
 ## Installation
 
 **Releases:**
-- **Linux AppImage** — single file, runs on any distro. `chmod +x` and run.
-- **Linux tar.gz** — for manual install. Requires `qt6-qtbase` and `mpv-libs`.
-- **Windows** — extract and run `lmao.exe`.
-- **Windows (full)** — includes ffmpeg and ffprobe for full-resolution screenshots and bitrate detection.
+- **Linux AppImage** - single file, runs on any distro. `chmod +x` and run.
+- **Linux tar.gz** - for manual install. Requires `qt6-qtbase` and `mpv-libs`.
+- **Windows** - extract and run `lmao.exe`.
+- **Windows (full)** - includes ffmpeg and ffprobe for full-resolution screenshots and bitrate detection.
 
 **Fedora (COPR):**
 ```bash
