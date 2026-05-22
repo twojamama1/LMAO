@@ -47,5 +47,5 @@ Yes, another one. LMAO 🤣
 %{_datadir}/icons/hicolor/512x512/apps/dev.elek.LMAO.png
 
 %changelog
-* Thu May 22 2026 ElekKartofelek <elek@users.noreply.github.com> - 1.0.0-1
+* Fri May 22 2026 ElekKartofelek <elek@users.noreply.github.com> - 1.0.0-1
 - Initial release
