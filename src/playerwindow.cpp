@@ -949,6 +949,10 @@ void PlayerWindow::updateInfoOverlay() {
 // --- Edit mode ---
 
 void PlayerWindow::toggleEditMode() {
+    if (!controller->hasMedia()) {
+        showNotification("No file loaded");
+        return;
+    }
     if (!editMode && !controller->hasFFmpeg()) {
         showNotification("Edit Mode requires FFmpeg");
         return;
@@ -1056,6 +1060,12 @@ void PlayerWindow::exportClip() {
         return;
     }
 
+    // Pause playback - must pause early (causes bugs on Windows)
+    exportWasPaused = controller->isPaused();
+    if (!exportWasPaused) controller->togglePause();
+    QApplication::processEvents(); // Wait for pause to take effect
+
+
     QFileInfo fi(inputPath);
     QString defaultName = QString("%1/%2_trimmed.%3")
         .arg(fi.absolutePath(), fi.completeBaseName(), fi.suffix());
@@ -1083,10 +1093,6 @@ void PlayerWindow::exportClip() {
 #endif
 
     if (outputPath.isEmpty()) return;
-
-    // Pause playback
-    exportWasPaused = controller->isPaused();
-    if (!exportWasPaused) controller->togglePause();
 
     // --- Build export overlay ---
 
