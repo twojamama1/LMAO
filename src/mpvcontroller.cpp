@@ -22,6 +22,13 @@ static QString findTool(const QString &name) {
     QString local = QCoreApplication::applicationDirPath() + "/" + name + ".exe";
     if (QFile::exists(local))
         return local;
+#else
+    // Check common system paths in case PATH is restricted (e.g. AppImage)
+    for (const auto &dir : {"/usr/bin/", "/usr/local/bin/", "/bin/"}) {
+        QString path = QString(dir) + name;
+        if (QFile::exists(path))
+            return path;
+    }
 #endif
     return name;
 }
@@ -39,7 +46,6 @@ static bool toolExists(const QString &name) {
 MpvController::MpvController(MpvWidget *widget, QObject *parent)
     : QObject(parent), mpv(widget)
 {
-    // Cache tool availability at startup
     ffmpegAvailable = toolExists("ffmpeg");
     ffprobeAvailable = toolExists("ffprobe");
 

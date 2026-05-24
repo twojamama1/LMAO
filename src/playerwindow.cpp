@@ -1219,7 +1219,6 @@ void PlayerWindow::closeExportOverlay() {
     bool shouldResume = !exportWasPaused;
 
     if (exportProcess) {
-        // Disconnect all signals first to prevent callbacks during cleanup
         exportProcess->disconnect();
         if (exportProcess->state() != QProcess::NotRunning) {
             exportProcess->kill();
@@ -1244,7 +1243,9 @@ void PlayerWindow::closeExportOverlay() {
         exportDimmer = nullptr;
     }
 
-    // Resume playback last, after everything is cleaned up
+    // Reset seeking flag in case it got stuck
+    seeking = false;
+
     if (shouldResume) controller->togglePause();
 }
 
