@@ -46,6 +46,6 @@ private:
 
     // Saved base values
     QColor m_baseBg;
-    int m_baseHighlight = 15;
+    int m_baseHighlight = 25;
     double m_baseGloss = 1.0;
 };

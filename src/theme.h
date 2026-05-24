@@ -25,7 +25,7 @@ namespace Theme {
     inline const QColor popupBg    = QColor(5, 5, 5, 235);
     inline const int panelRadius   = 15;
     inline const int popupRadius   = 15;
-    inline const int highlight     = 15;
+    inline const int highlight     = 20;
 
     // Button states
     inline const QString btnHoverBg =

@@ -41,7 +41,7 @@ sudo dnf install lmao
 
 ## Which build should I get?
 
-**Linux** has one version - FFmpeg is picked up from your system automatically.
+**Linux** - whatever version you pick (manual, COPR, AppImage) FFmpeg should be picked up from your system automatically.
 
 To make sure all features work:
 ```bash
