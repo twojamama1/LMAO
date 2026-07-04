@@ -723,6 +723,13 @@ void PlayerWindow::buildMenuItems(QVBoxLayout *layout, QWidget *parent, bool fro
     connect(openBtn, &QPushButton::clicked, this, [this, close]() { close(); promptOpenFile(); });
     layout->addWidget(openBtn);
 
+    auto *subtitleBtn = makeMenuButton("Load subtitles...", "", parent);
+    connect(subtitleBtn,&QPushButton::clicked,this,[this, close](){close(); QString file=QFileDialog::getOpenFileName(this,"Open Subtitle",QString(),"Subtitle Files (*.srt *.ass *.ssa *.vtt)"); if(!file.isEmpty()) controller->loadSubtitle(file);});
+    layout->addWidget(subtitleBtn);
+    auto *toggleSubtitleBtn=makeMenuButton("Toggle subtitles","",parent);
+    connect(toggleSubtitleBtn,&QPushButton::clicked,this,[this](){controller->toggleSubtitles();});
+    layout->addWidget(toggleSubtitleBtn);
+
     layout->addWidget(makeSeparator(parent));
 
     // Loop
