@@ -189,6 +189,9 @@ void MpvController::toggleLoop() {
     mpv->setPropertyString("loop-file", looping ? "no" : "inf");
 }
 
+void MpvController::loadSubtitle(const QString &path){if(!hasMedia())return; mpv->command({"sub-add",path,"select"});}
+void MpvController::toggleSubtitles(){if(!hasMedia())return; mpv->command({"cycle","sub-visibility"});}
+
 // --- Audio ---
 
 void MpvController::setAudioTrack(int64_t id) {
