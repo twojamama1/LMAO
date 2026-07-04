@@ -32,6 +32,8 @@ public:
     void toggleLoop();
     void setSpeed(double speed);
     double speed() const;
+    void loadSubtitle(const QString &path);
+    void toggleSubtitles();
 
 
     // Audio
